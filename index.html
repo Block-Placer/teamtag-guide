@@ -25,15 +25,14 @@ body{
 }
 header{
   text-align:center; padding:46px 20px 30px;
-  background:linear-gradient(#0c0a0ef2, #0c0a0ef2);
-  border-bottom:4px solid #000; box-shadow:0 5px 0 var(--gold-lo);
+  background:#0c0a0ef2; border-bottom:4px solid #000; box-shadow:0 5px 0 var(--gold-lo);
 }
 h1{
   font-family:"Press Start 2P", monospace; font-weight:normal;
   font-size:clamp(18px, 3.2vw, 30px); color:var(--gold); line-height:1.5;
   margin:0 0 14px; text-shadow:3px 3px 0 #3d2706;
 }
-.sub{color:var(--muted); max-width:620px; margin:0 auto 18px}
+.sub{color:var(--muted); max-width:640px; margin:0 auto 18px}
 .steps-row{display:flex; flex-wrap:wrap; justify-content:center; gap:10px}
 .how{
   display:flex; align-items:center; gap:10px; padding:8px 14px;
@@ -41,8 +40,8 @@ h1{
   box-shadow:inset 2px 2px 0 var(--edge-hi), inset -2px -2px 0 var(--edge-lo);
 }
 .wrap{
-  max-width:1120px; margin:0 auto; padding:26px 16px 70px;
-  display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:22px; align-items:start;
+  max-width:1160px; margin:0 auto; padding:26px 16px 70px;
+  display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:22px; align-items:start;
 }
 @media (max-width:900px){ .wrap{grid-template-columns:1fr} }
 .panel{
@@ -55,23 +54,23 @@ h2{
   font-family:"Press Start 2P", monospace; font-weight:normal; font-size:12px; color:var(--gold);
   margin:0 0 12px; line-height:1.7; display:flex; align-items:center; gap:10px;
 }
-h2.mt{margin-top:24px}
+h2.mt{margin-top:26px}
 .num{
   display:inline-flex; align-items:center; justify-content:center; flex:0 0 26px;
   height:26px; background:var(--gold); color:#2a1d05; font-family:"Press Start 2P", monospace;
   font-size:10px; box-shadow:inset -2px -2px 0 var(--gold-lo), inset 2px 2px 0 var(--gold-hi);
 }
-.hint{color:var(--muted); font-size:19px}
+.hint{color:var(--muted); font-size:19px; margin:6px 0 0}
 .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:10px}
 .between{justify-content:space-between}
 .over{color:var(--red) !important}
-input[type=text]{
+textarea, input[type=text]{
   width:100%; background:#0b090d; border:3px solid #000; color:var(--text);
   font-family:"VT323", monospace; font-size:28px; padding:8px 12px;
-  box-shadow:inset 2px 2px 0 #000; outline:none;
+  box-shadow:inset 2px 2px 0 #000; outline:none; resize:vertical;
 }
-input[type=text]:focus{border-color:var(--gold)}
-input[type=text].bad{border-color:var(--red)}
+textarea:focus, input[type=text]:focus{border-color:var(--gold)}
+input.bad{border-color:var(--red) !important}
 .btn{
   font-family:"VT323", monospace; font-size:22px; color:var(--text); cursor:pointer;
   background:#3a3342; border:3px solid #000; padding:6px 14px;
@@ -85,8 +84,13 @@ input[type=text].bad{border-color:var(--red)}
 }
 .btn:disabled{opacity:.45; cursor:not-allowed}
 .btn.big{font-size:24px; padding:8px 18px}
+.btn.small{font-size:18px; padding:2px 10px}
 .btn.ghost{background:transparent; box-shadow:none; border-color:#3a3342}
-.styles{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px}
+.sel-label{
+  background:#0b090d; border:3px solid #000; padding:8px 12px; font-size:22px;
+  box-shadow:inset 2px 2px 0 #000; word-break:break-word; min-height:44px;
+}
+.styles{display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-top:10px}
 .tile{display:flex; flex-direction:column; align-items:center; gap:2px; padding:12px 8px}
 .tile .ex{font-size:30px; line-height:1.1}
 .tile .cap{font-size:20px}
@@ -97,26 +101,23 @@ input[type=text].bad{border-color:var(--red)}
 .ex.underlined{text-decoration:underline}
 .ex.strikethrough{text-decoration:line-through}
 .ex.obfuscated{letter-spacing:2px}
-.seg{display:flex; flex-wrap:wrap; gap:10px}
-.colorrow{margin-top:14px}
-.colorrow label, #swatchWrap label{display:block; color:var(--muted); margin:0 0 6px}
-.grad-cols{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-@media (max-width:560px){ .grad-cols{grid-template-columns:1fr} }
-.pair{display:flex; gap:10px; align-items:center}
-input[type=color]{
-  width:58px; height:46px; padding:0; border:3px solid #000; background:#0b090d; cursor:pointer
-}
+.pair{display:flex; gap:10px; align-items:center; margin-top:10px}
+input[type=color]{width:58px; height:46px; padding:0; border:3px solid #000; background:#0b090d; cursor:pointer}
 .hexin{flex:1; font-size:24px; text-transform:uppercase}
-.swatches{display:grid; grid-template-columns:repeat(8, 1fr); gap:6px; margin-top:4px}
+.swatches{display:grid; grid-template-columns:repeat(8, 1fr); gap:6px; margin-top:12px}
 .sw{
   aspect-ratio:1; border:3px solid #000; cursor:pointer;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.35), inset -2px -2px 0 rgba(0,0,0,.35);
 }
 .sw:hover{transform:translateY(-2px)}
+.gradbar{height:26px; border:3px solid #000; margin-top:10px; box-shadow:inset 2px 2px 0 #000}
+.stoprow{display:flex; gap:10px; align-items:center; margin-top:8px}
+.stoplabel{font-family:"Press Start 2P", monospace; font-size:10px; color:var(--muted); min-width:24px}
+.stoprow .hexin{font-size:22px}
 #search{margin-top:6px}
 .grid{
   display:grid; grid-template-columns:repeat(auto-fill, minmax(56px, 1fr)); gap:6px;
-  max-height:320px; overflow-y:auto; margin-top:10px; padding:8px;
+  max-height:300px; overflow-y:auto; margin-top:10px; padding:8px;
   background:#0b090d; border:3px solid #000; box-shadow:inset 2px 2px 0 #000;
 }
 .cell{
@@ -142,14 +143,13 @@ input[type=color]{
   margin-top:12px; background:rgba(0,0,0,.5); padding:10px 12px; font-size:24px;
   border-left:4px solid var(--gold-lo); word-break:break-word;
 }
-.chatname{color:#fff}
-.chatbracket{color:#fff}
 .chatline .spr{width:.9em; height:.9em}
 textarea#out{
-  width:100%; min-height:96px; resize:vertical; background:#0b090d; border:3px solid #000;
-  color:var(--green); font-family:"VT323", monospace; font-size:24px; padding:10px 12px;
-  box-shadow:inset 2px 2px 0 #000; word-break:break-all;
+  min-height:96px; color:var(--green); font-size:24px; word-break:break-all;
 }
+textarea#pasteIn{min-height:80px; font-size:22px}
+.warn{margin:10px 0 0; padding-left:20px; color:var(--red); font-size:19px}
+.warn li{margin-bottom:4px}
 .plain{margin:0; padding-left:24px}
 .plain li{margin-bottom:8px}
 .plain b{color:var(--gold); font-weight:normal}
@@ -171,60 +171,50 @@ footer{text-align:center; color:var(--muted); font-size:17px; padding-bottom:30p
 <main class="wrap">
   <section class="panel">
     <h2><span class="num">1</span>Type your tag</h2>
-    <input id="text" type="text" placeholder="Example: MVP" autocomplete="off" spellcheck="false">
+    <textarea id="text" rows="2" placeholder="Example: MVP" autocomplete="off" spellcheck="false"></textarea>
     <div class="row between">
-      <span class="hint">Up to 16 characters. Each image counts as one.</span>
+      <span class="hint">Pictures show up as {name} here and as real images in the preview.</span>
       <span id="count" class="hint">0 / 16 characters</span>
     </div>
 
-    <h2 class="mt"><span class="num">2</span>Text style</h2>
-    <p class="hint">Styles apply to the whole tag. Turn on as many as you like.</p>
-    <div id="styles" class="styles"></div>
+    <h2 class="mt"><span class="num">2</span>Choose what to change</h2>
+    <div id="selLabel" class="sel-label">Nothing selected. Changes apply to the whole tag.</div>
+    <p class="hint">Highlight any letters in the box above, then use the options below. Only the highlighted letters change. With nothing highlighted, the change applies to the whole tag.</p>
 
-    <h2 class="mt"><span class="num">3</span>Colors</h2>
-    <div id="modes" class="seg">
-      <button type="button" class="btn" data-mode="none" aria-pressed="true">No color</button>
-      <button type="button" class="btn" data-mode="color" aria-pressed="false">One color</button>
-      <button type="button" class="btn" data-mode="gradient" aria-pressed="false">Gradient</button>
+    <h2 class="mt"><span class="num">3</span>Text style</h2>
+    <div id="styleBtns" class="styles"></div>
+    <div class="row"><button id="clearFmt" type="button" class="btn ghost">Clear formatting</button></div>
+
+    <h2 class="mt"><span class="num">4</span>One color</h2>
+    <div class="pair">
+      <input id="colorPick" type="color" value="#ffaa00">
+      <input id="colorHex" class="hexin" type="text" value="#ffaa00" maxlength="7" spellcheck="false">
+      <button id="applyColor" type="button" class="btn">Apply</button>
+    </div>
+    <div id="swatches" class="swatches"></div>
+    <div class="row"><button id="clearColor" type="button" class="btn ghost">Remove color</button></div>
+
+    <h2 class="mt"><span class="num">5</span>Gradient</h2>
+    <p class="hint">Add as many colors as you want. They blend evenly across the highlighted letters.</p>
+    <div id="gradBar" class="gradbar"></div>
+    <div id="stops"></div>
+    <div class="row">
+      <button id="addStop" type="button" class="btn">+ Add color</button>
+      <button id="applyGrad" type="button" class="btn big">Apply gradient</button>
+      <button id="removeGrad" type="button" class="btn ghost">Remove gradient</button>
     </div>
 
-    <div id="solidRow" class="colorrow" hidden>
-      <label>Color</label>
-      <div class="pair">
-        <input id="colorPick" type="color" value="#ffaa00">
-        <input id="colorHex" class="hexin" type="text" value="#ffaa00" maxlength="7" spellcheck="false">
-      </div>
-    </div>
-
-    <div id="gradRow" class="colorrow" hidden>
-      <div class="grad-cols">
-        <div>
-          <label>Start color</label>
-          <div class="pair">
-            <input id="fromPick" type="color" value="#ff5555">
-            <input id="fromHex" class="hexin" type="text" value="#ff5555" maxlength="7" spellcheck="false">
-          </div>
-        </div>
-        <div>
-          <label>End color</label>
-          <div class="pair">
-            <input id="toPick" type="color" value="#55ffff">
-            <input id="toHex" class="hexin" type="text" value="#55ffff" maxlength="7" spellcheck="false">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="swatchWrap" class="colorrow" hidden>
-      <label>Minecraft colors <span class="hint">(click one to use it)</span></label>
-      <div id="swatches" class="swatches"></div>
-    </div>
-
-    <h2 class="mt"><span class="num">4</span>Add a block or item</h2>
-    <p class="hint">Click one to add it at your cursor. It appears as a small picture in the preview.</p>
+    <h2 class="mt"><span class="num">6</span>Add a block or item</h2>
+    <p class="hint">Click one to place it where the cursor is.</p>
     <input id="search" type="text" placeholder="Search, for example: diamond or grass" autocomplete="off" spellcheck="false">
     <div id="spriteCount" class="hint" style="margin-top:8px"></div>
     <div id="grid" class="grid"></div>
+
+    <h2 class="mt"><span class="num">7</span>Paste your own MiniMessage (optional)</h2>
+    <p class="hint">Paste a tag from another tool or from this page. It loads into the editor, so you can keep changing it.</p>
+    <textarea id="pasteIn" rows="3" placeholder="Paste MiniMessage here" spellcheck="false"></textarea>
+    <div class="row"><button id="importBtn" type="button" class="btn">Load into editor</button></div>
+    <ul id="importWarn" class="warn"></ul>
   </section>
 
   <aside class="side">
@@ -232,14 +222,14 @@ footer{text-align:center; color:var(--muted); font-size:17px; padding-bottom:30p
       <h2>Preview</h2>
       <div id="tagPreview" class="preview"></div>
       <div class="chatline">
-        <span class="chatbracket">&lt;</span><span id="chatTag"></span><span class="chatname"> YourName</span><span class="chatbracket">&gt;</span>
-        <span>hello team!</span>
+        <span>&lt;</span><span id="chatTag"></span><span> YourName</span><span>&gt;</span>
+        <span> hello team!</span>
       </div>
     </section>
 
     <section class="panel">
       <h2>Your code</h2>
-      <textarea id="out" readonly></textarea>
+      <textarea id="out" rows="4" readonly></textarea>
       <div class="row between">
         <span id="outHint" class="hint"></span>
         <button id="copy" type="button" class="btn big">Copy code</button>
@@ -252,13 +242,14 @@ footer{text-align:center; color:var(--muted); font-size:17px; padding-bottom:30p
     <section class="panel">
       <h2>How to use it</h2>
       <ol class="plain">
+        <li>Type your tag, then highlight the letters you want to change.</li>
+        <li>Pick a style, color, or gradient. Only the highlighted letters change.</li>
         <li>Copy the code above.</li>
-        <li>Join your server and type <b>/teamtag</b>.</li>
-        <li>Paste the code into chat and press Enter.</li>
+        <li>Join your server and type <b>/teamtag</b>, then paste the code and press Enter.</li>
         <li>A staff member reviews it. Once approved, your tag shows in chat, the tab list, and above your head.</li>
       </ol>
       <p class="hint">Only team owners and managers can request a tag.</p>
-      <p class="hint">If a block or item shows as a purple and black square, the server can't show that picture. Ask a staff member.</p>
+      <p class="hint">If a picture shows as a purple and black square, the server can't show it. Ask a staff member.</p>
     </section>
   </aside>
 </main>
@@ -270,79 +261,135 @@ const SPRITES = [{"k":"block/acacia_door_bottom","d":"data:image/png;base64,iVBO
 const SPRITE_MAP = new Map(SPRITES.map(s => [s.k, s.d]));
 const LIMIT = 16;
 const HEX = /^#[0-9a-f]{6}$/i;
-const OBF = "!#$%&*+-/=?@[]^_|~ABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
-
+const ORDER = ["bold", "italic", "underlined", "strikethrough", "obfuscated"];
+const STYLE_NAMES = {
+  bold: ["Bold", "Thick letters"],
+  italic: ["Italic", "Slanted letters"],
+  underlined: ["Underline", "Line under text"],
+  strikethrough: ["Strikethrough", "Line through text"],
+  obfuscated: ["Obfuscated", "Letters keep shuffling"]
+};
+const STYLE_ALIAS = new Map([
+  ["bold", "bold"], ["b", "bold"],
+  ["italic", "italic"], ["i", "italic"], ["em", "italic"],
+  ["underlined", "underlined"], ["u", "underlined"],
+  ["strikethrough", "strikethrough"], ["st", "strikethrough"],
+  ["obfuscated", "obfuscated"], ["obf", "obfuscated"]
+]);
 const MC_COLORS = [
   ["Black", "#000000"], ["Dark Blue", "#0000aa"], ["Dark Green", "#00aa00"], ["Dark Aqua", "#00aaaa"],
   ["Dark Red", "#aa0000"], ["Dark Purple", "#aa00aa"], ["Gold", "#ffaa00"], ["Gray", "#aaaaaa"],
   ["Dark Gray", "#555555"], ["Blue", "#5555ff"], ["Green", "#55ff55"], ["Aqua", "#55ffff"],
   ["Red", "#ff5555"], ["Light Purple", "#ff55ff"], ["Yellow", "#ffff55"], ["White", "#ffffff"]
 ];
+const NAMED = new Map(MC_COLORS.map(([n, h]) => [n.toLowerCase().replace(/ /g, "_"), h]));
+const OBF = "!#$%&*+-/=?@[]^_|~ABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
 
-const STYLES = [
-  ["bold", "Bold", "Thick letters"],
-  ["italic", "Italic", "Slanted letters"],
-  ["underlined", "Underline", "Line under text"],
-  ["strikethrough", "Strikethrough", "Line through text"],
-  ["obfuscated", "Obfuscated", "Letters keep shuffling"]
-];
-
-const IDS = {
-  color: ["colorPick", "colorHex"],
-  from: ["fromPick", "fromHex"],
-  to: ["toPick", "toHex"]
-};
-
+// The whole tag is a list of units. Each unit is one visible character or one picture,
+// with its own style, color, and gradient membership.
 const state = {
-  styles: { bold: false, italic: false, underlined: false, strikethrough: false, obfuscated: false },
-  mode: "none",
-  colors: { color: "#ffaa00", from: "#ff5555", to: "#55ffff" },
-  target: "color"
+  units: [],
+  gradients: {},          // id -> { stops: [hex, ...] }
+  nextGradId: 1,
+  stops: ["#ff5555", "#55ffff"]
 };
 
 const $ = id => document.getElementById(id);
 
-// ---------- parsing and output ----------
+// ---------- unit helpers ----------
 
-function parse(src) {
-  const out = [];
-  const re = /\{([a-z0-9_]+\/[a-z0-9_\/]+)\}/g;
-  let last = 0, m;
-  while ((m = re.exec(src)) !== null) {
-    if (!SPRITE_MAP.has(m[1])) continue;
-    if (m.index > last) out.push({ t: "text", v: src.slice(last, m.index) });
-    out.push({ t: "sprite", k: m[1] });
-    last = re.lastIndex;
-  }
-  if (last < src.length) out.push({ t: "text", v: src.slice(last) });
-  return out;
+function blankStyle() {
+  return { bold: false, italic: false, underlined: false, strikethrough: false, obfuscated: false };
 }
 
-function visibleLength(parts) {
-  return parts.reduce((n, p) => n + (p.t === "sprite" ? 1 : [...p.v].length), 0);
+function fmtFrom(u) {
+  return u ? { s: { ...u.s }, c: u.c, g: u.g } : { s: blankStyle(), c: null, g: null };
 }
 
-function esc(s) {
-  return s.replace(/</g, "\\<");
+function charUnit(ch, from) {
+  return { sprite: false, ch, len: ch.length, ...fmtFrom(from) };
 }
 
-function spriteTag(k) {
-  const atlas = k.startsWith("item/") ? "minecraft:items" : "minecraft:blocks";
-  return `<sprite:"${atlas}":${k}>`;
+function spriteUnit(key, from) {
+  return { sprite: true, key, len: key.length + 2, ...fmtFrom(from) };
 }
 
-function buildCode(parts) {
-  if (!parts.length) return "";
-  let inner = parts.map(p => p.t === "sprite" ? spriteTag(p.k) : esc(p.v)).join("");
-  for (const key of ["bold", "italic", "underlined", "strikethrough", "obfuscated"]) {
-    if (state.styles[key]) inner = `<${key}>${inner}</${key}>`;
-  }
-  if (state.mode === "color") inner = `<color:${state.colors.color}>${inner}</color>`;
-  if (state.mode === "gradient") inner = `<gradient:${state.colors.from}:${state.colors.to}>${inner}</gradient>`;
-  return inner;
+function displayOf(units) {
+  return units.map(u => u.sprite ? `{${u.key}}` : u.ch).join("");
 }
 
-// ---------- preview ----------
+function offsetsOf(units) {
+  const starts = [];
+  let p = 0;
+  for (const u of units) { starts.push(p); p += u.len; }
+  return { starts, total: p };
+}
+
+function selectedRange() {
+  const el = $("text");
+  const s = el.selectionStart, e = el.selectionEnd;
+  if (s === e) return null;
+  const { starts } = offsetsOf(state.units);
+  let a = -1, b = -1;
+  state.units.forEach((u, i) => {
+    const st = starts[i], en = st + u.len;
+    if (en > s && st < e) { if (a < 0) a = i; b = i + 1; }
+  });
+  return a < 0 ? null : [a, b];
+}
+
+// The units a change applies to: the highlighted letters, or the whole tag if nothing is highlighted.
+function targetUnits() {
+  const r = selectedRange();
+  return r ? state.units.slice(r[0], r[1]) : state.units;
+}
+
+// Keeps the units in step with what's typed in the box.
+function syncFromText(next) {
+  const units = state.units;
+  const n = units.length;
+  const old = displayOf(units);
+  const { starts } = offsetsOf(units);
+
+  let p = 0;
+  const lim = Math.min(old.length, next.length);
+  while (p < lim && old[p] === next[p]) p++;
+
+  let q = 0;
+  while (q < lim - p && old[old.length - 1 - q] === next[next.length - 1 - q]) q++;
+
+  let pre = 0;
+  while (pre < n && starts[pre] + units[pre].len <= p) pre++;
+
+  let suf = 0;
+  while (suf < n - pre && starts[n - 1 - suf] >= old.length - q) suf++;
+
+  const midStart = pre < n ? starts[pre] : old.length;
+  const midEnd = suf > 0 ? starts[n - suf] : old.length;
+  const newMid = next.slice(midStart, next.length - (old.length - midEnd));
+
+  const base = units[pre] || units[pre - 1];
+  const inserted = Array.from(newMid, ch => charUnit(ch, base));
+  units.splice(pre, n - suf - pre, ...inserted);
+}
+
+function insertSprite(key) {
+  const el = $("text");
+  const pos = el.selectionStart;
+  const { starts } = offsetsOf(state.units);
+  let idx = starts.findIndex(s => s >= pos);
+  if (idx < 0) idx = state.units.length;
+  const base = state.units[idx - 1] || state.units[idx];
+  const unit = spriteUnit(key, base);
+  state.units.splice(idx, 0, unit);
+  el.value = displayOf(state.units);
+  const caret = offsetsOf(state.units).starts[idx] + unit.len;
+  el.focus();
+  el.setSelectionRange(caret, caret);
+  refresh();
+}
+
+// ---------- colors and gradients ----------
 
 function hexToRgb(h) { return [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); }
 
@@ -351,20 +398,61 @@ function mix(a, b, t) {
   return "#" + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join("");
 }
 
-function randomChar() {
-  return OBF[Math.floor(Math.random() * OBF.length)];
+function gradColor(stops, t) {
+  if (stops.length === 1) return stops[0];
+  const pos = t * (stops.length - 1);
+  const k = Math.min(Math.floor(pos), stops.length - 2);
+  return mix(stops[k], stops[k + 1], pos - k);
 }
 
-function renderPreview(el, parts) {
-  el.textContent = "";
-  const units = [];
-  for (const p of parts) {
-    if (p.t === "sprite") units.push({ sprite: p.k });
-    else for (const ch of p.v) units.push({ ch });
+// Position of each unit inside its gradient, from 0 to 1.
+function gradientPositions(units) {
+  const out = new Array(units.length).fill(0);
+  let i = 0;
+  while (i < units.length) {
+    if (units[i].g == null) { i++; continue; }
+    let j = i;
+    while (j < units.length && units[j].g === units[i].g) j++;
+    const n = j - i;
+    for (let k = i; k < j; k++) out[k] = n > 1 ? (k - i) / (n - 1) : 0;
+    i = j;
   }
+  return out;
+}
 
+function colorOf(u, t) {
+  if (u.g != null && state.gradients[u.g]) return gradColor(state.gradients[u.g].stops, t);
+  return u.c || "#ffffff";
+}
+
+function applyColor(hex) {
+  targetUnits().forEach(u => { u.c = hex; u.g = null; });
+  refresh();
+}
+
+function applyGradient() {
+  if (state.stops.length < 2) return;
+  const id = state.nextGradId++;
+  state.gradients[id] = { stops: [...state.stops] };
+  targetUnits().forEach(u => { u.g = id; u.c = null; });
+  refresh();
+}
+
+function toggleStyle(key) {
+  const t = targetUnits();
+  if (!t.length) return;
+  const on = !t.every(u => u.s[key]);
+  t.forEach(u => { u.s[key] = on; });
+  refresh();
+}
+
+// ---------- preview ----------
+
+function renderPreview(el, withPlaceholder) {
+  el.textContent = "";
+  const units = state.units;
   if (!units.length) {
-    if (el.id === "tagPreview") {
+    if (withPlaceholder) {
       const hint = document.createElement("span");
       hint.className = "placeholder";
       hint.textContent = "Your tag shows up here";
@@ -372,84 +460,329 @@ function renderPreview(el, parts) {
     }
     return;
   }
-
-  const textTotal = units.filter(u => u.ch !== undefined).length;
-  const s = state.styles;
-  const deco = [s.underlined && "underline", s.strikethrough && "line-through"].filter(Boolean).join(" ");
-  let i = 0;
-
-  for (const u of units) {
-    const node = document.createElement("span");
+  const ts = gradientPositions(units);
+  units.forEach((u, i) => {
+    const span = document.createElement("span");
     if (u.sprite) {
-      node.className = "spr";
-      node.style.backgroundImage = `url(${SPRITE_MAP.get(u.sprite)})`;
+      span.className = "spr";
+      span.style.backgroundImage = `url(${SPRITE_MAP.get(u.key)})`;
     } else {
-      let color = "#ffffff";
-      if (state.mode === "color") color = state.colors.color;
-      if (state.mode === "gradient") {
-        color = mix(state.colors.from, state.colors.to, textTotal > 1 ? i / (textTotal - 1) : 0);
-      }
-      node.style.color = color;
-      node.textContent = u.ch === " " ? "\u00a0" : u.ch;
-      if (s.bold) node.style.fontWeight = "bold";
-      if (s.italic) node.style.fontStyle = "italic";
-      if (deco) node.style.textDecoration = deco;
-      if (s.obfuscated && u.ch !== " ") {
-        node.classList.add("obf");
-        node.textContent = randomChar();
-      }
-      i++;
+      span.textContent = u.ch === " " ? "\u00a0" : u.ch;
+      span.style.color = colorOf(u, ts[i]);
+      if (u.s.bold) span.style.fontWeight = "bold";
+      if (u.s.italic) span.style.fontStyle = "italic";
+      const deco = [u.s.underlined && "underline", u.s.strikethrough && "line-through"].filter(Boolean).join(" ");
+      if (deco) span.style.textDecoration = deco;
+      if (u.s.obfuscated) span.classList.add("obf");
     }
-    el.appendChild(node);
-  }
+    el.appendChild(span);
+  });
+}
+
+function randomChar() {
+  return OBF[Math.floor(Math.random() * OBF.length)];
 }
 
 setInterval(() => {
-  document.querySelectorAll(".obf").forEach(n => { n.textContent = randomChar(); });
+  document.querySelectorAll(".obf").forEach(n => {
+    if (n.textContent !== "\u00a0") n.textContent = randomChar();
+  });
 }, 70);
 
-// ---------- main update ----------
+// ---------- MiniMessage output ----------
 
-function renderAll() {
-  const parts = parse($("text").value);
-  const vis = visibleLength(parts);
+function escapeText(s) {
+  return s.replace(/</g, "\\<");
+}
+
+function spriteTag(k) {
+  const atlas = k.startsWith("item/") ? "minecraft:items" : "minecraft:blocks";
+  return `<sprite:"${atlas}":${k}>`;
+}
+
+function runKey(u, inGradient) {
+  return (inGradient ? "" : (u.c || "")) + "|" + ORDER.filter(k => u.s[k]).join(",");
+}
+
+function wrapRun(u, inGradient, text) {
+  let open = "", close = "";
+  const color = !inGradient && u.c ? u.c : null;
+  if (color) { open += `<color:${color}>`; close = "</color>" + close; }
+  for (const k of ORDER) {
+    if (u.s[k]) { open += `<${k}>`; close = `</${k}>` + close; }
+  }
+  return open + text + close;
+}
+
+function emitRun(list, inGradient) {
+  let out = "";
+  let i = 0;
+  while (i < list.length) {
+    const u = list[i];
+    if (u.sprite) { out += spriteTag(u.key); i++; continue; }
+    const key = runKey(u, inGradient);
+    let text = "";
+    let j = i;
+    while (j < list.length && !list[j].sprite && runKey(list[j], inGradient) === key) {
+      text += escapeText(list[j].ch);
+      j++;
+    }
+    out += wrapRun(u, inGradient, text);
+    i = j;
+  }
+  return out;
+}
+
+function buildCode() {
+  const units = state.units;
+  let out = "";
+  let i = 0;
+  while (i < units.length) {
+    const g = units[i].g;
+    let j = i;
+    while (j < units.length && units[j].g === g) j++;
+    const slice = units.slice(i, j);
+    const grad = g != null ? state.gradients[g] : null;
+    if (grad && grad.stops.length >= 2) {
+      out += `<gradient:${grad.stops.join(":")}>${emitRun(slice, true)}</gradient>`;
+    } else {
+      out += emitRun(slice, false);
+    }
+    i = j;
+  }
+  return out;
+}
+
+// ---------- paste and import ----------
+
+function parseColor(s) {
+  if (!s) return null;
+  const v = s.trim().toLowerCase();
+  if (/^#[0-9a-f]{6}$/.test(v)) return v;
+  if (/^#[0-9a-f]{3}$/.test(v)) return "#" + [...v.slice(1)].map(c => c + c).join("");
+  return NAMED.get(v) || null;
+}
+
+function parseMini(src) {
+  const warnings = [];
+  const units = [];
+  const gradients = {};
+  let nextId = 1;
+  const stack = [];   // { type: "style", key } | { type: "color", hex } | { type: "gradient", id }
+
+  const current = () => {
+    const s = blankStyle();
+    let c = null, g = null;
+    for (const e of stack) {
+      if (e.type === "style") s[e.key] = true;
+      else if (e.type === "color") c = e.hex;
+      else if (e.type === "gradient") g = e.id;
+    }
+    return { s, c, g };
+  };
+
+  const removeLast = pred => {
+    for (let i = stack.length - 1; i >= 0; i--) {
+      if (pred(stack[i])) { stack.splice(i, 1); return; }
+    }
+  };
+
+  const pushChar = ch => {
+    const f = current();
+    units.push({ sprite: false, ch, len: ch.length, s: f.s, c: f.c, g: f.g });
+  };
+
+  const handleTag = raw => {
+    const closing = raw.startsWith("/");
+    const name = (closing ? raw.slice(1) : raw).trim();
+    const lower = name.toLowerCase();
+
+    if (closing) {
+      if (lower === "gradient") removeLast(e => e.type === "gradient");
+      else if (STYLE_ALIAS.has(lower)) removeLast(e => e.type === "style" && e.key === STYLE_ALIAS.get(lower));
+      else removeLast(e => e.type === "color");
+      return;
+    }
+
+    if (lower.startsWith("sprite:")) {
+      const m = name.match(/^sprite:(?:"[^"]*"|[^:]+):(.+)$/i);
+      const key = m ? m[1].trim() : "";
+      if (SPRITE_MAP.has(key)) {
+        const f = current();
+        units.push({ sprite: true, key, len: key.length + 2, s: f.s, c: f.c, g: f.g });
+      } else {
+        warnings.push(`The picture "${name}" isn't in the picture list, so it was skipped.`);
+      }
+      return;
+    }
+
+    if (lower.startsWith("gradient:")) {
+      const stops = name.slice(9).split(":").map(parseColor).filter(Boolean);
+      if (stops.length < 2) {
+        warnings.push(`A gradient needs at least two valid colors. "<${name}>" was skipped.`);
+        stack.push({ type: "gradient", id: null });
+      } else {
+        const id = nextId++;
+        gradients[id] = { stops };
+        stack.push({ type: "gradient", id });
+      }
+      return;
+    }
+
+    if (lower === "reset") {
+      for (let i = stack.length - 1; i >= 0; i--) {
+        if (stack[i].type !== "gradient") stack.splice(i, 1);
+      }
+      return;
+    }
+
+    if (lower.startsWith("color:") || lower.startsWith("#")) {
+      const hex = parseColor(lower.startsWith("color:") ? name.slice(6) : name);
+      if (hex) stack.push({ type: "color", hex });
+      else warnings.push(`The color in "<${name}>" wasn't recognized, so it was skipped.`);
+      return;
+    }
+
+    if (STYLE_ALIAS.has(lower)) {
+      stack.push({ type: "style", key: STYLE_ALIAS.get(lower) });
+      return;
+    }
+
+    const named = parseColor(lower);
+    if (named) { stack.push({ type: "color", hex: named }); return; }
+
+    warnings.push(`"<${name}>" isn't supported here, so it was ignored.`);
+  };
+
+  let i = 0;
+  while (i < src.length) {
+    const ch = src[i];
+    if (ch === "\\" && src[i + 1] === "<") { pushChar("<"); i += 2; continue; }
+    if (ch === "<") {
+      const end = src.indexOf(">", i);
+      if (end > i) { handleTag(src.slice(i + 1, end)); i = end + 1; continue; }
+    }
+    const cp = String.fromCodePoint(src.codePointAt(i));
+    pushChar(cp);
+    i += cp.length;
+  }
+
+  return { units, gradients, nextId, warnings };
+}
+
+// ---------- gradient builder ----------
+
+function drawBar() {
+  $("gradBar").style.background = `linear-gradient(to right, ${state.stops.join(", ")})`;
+}
+
+function renderStops() {
+  const box = $("stops");
+  box.textContent = "";
+  state.stops.forEach((hex, i) => {
+    const row = document.createElement("div");
+    row.className = "stoprow";
+
+    const label = document.createElement("span");
+    label.className = "stoplabel";
+    label.textContent = String(i + 1);
+
+    const pick = document.createElement("input");
+    pick.type = "color";
+    pick.value = hex;
+
+    const txt = document.createElement("input");
+    txt.type = "text";
+    txt.className = "hexin";
+    txt.maxLength = 7;
+    txt.value = hex;
+    txt.spellcheck = false;
+
+    const del = document.createElement("button");
+    del.type = "button";
+    del.className = "btn small";
+    del.textContent = "Remove";
+    del.disabled = state.stops.length <= 2;
+
+    pick.addEventListener("input", () => {
+      state.stops[i] = pick.value;
+      txt.value = pick.value;
+      drawBar();
+    });
+    txt.addEventListener("input", () => {
+      let v = txt.value.trim();
+      if (v && !v.startsWith("#")) v = "#" + v;
+      if (HEX.test(v)) {
+        state.stops[i] = v.toLowerCase();
+        pick.value = state.stops[i];
+        txt.classList.remove("bad");
+        drawBar();
+      } else {
+        txt.classList.add("bad");
+      }
+    });
+    del.addEventListener("click", () => {
+      state.stops.splice(i, 1);
+      renderStops();
+    });
+
+    row.append(label, pick, txt, del);
+    box.appendChild(row);
+  });
+  drawBar();
+}
+
+// When you click into a gradient, the builder loads that gradient's colors.
+function onSelect() {
+  const r = selectedRange();
+  const label = $("selLabel");
+  if (r) {
+    const txt = displayOf(state.units.slice(r[0], r[1]));
+    label.textContent = `Selected: "${txt}"`;
+    const first = state.units[r[0]];
+    if (first && first.g != null && state.gradients[first.g]) {
+      state.stops = [...state.gradients[first.g].stops];
+      renderStops();
+    }
+  } else {
+    label.textContent = "Nothing selected. Changes apply to the whole tag.";
+  }
+  updateStyleButtons();
+}
+
+function updateStyleButtons() {
+  const t = targetUnits();
+  document.querySelectorAll("#styleBtns .tile").forEach(b => {
+    const key = b.dataset.key;
+    b.setAttribute("aria-pressed", String(t.length > 0 && t.every(u => u.s[key])));
+  });
+}
+
+// ---------- refresh ----------
+
+function refresh() {
+  const n = state.units.length;
   const count = $("count");
-  count.textContent = `${vis} / ${LIMIT} characters`;
-  count.classList.toggle("over", vis > LIMIT);
+  count.textContent = `${n} / ${LIMIT} characters`;
+  count.classList.toggle("over", n > LIMIT);
 
-  renderPreview($("tagPreview"), parts);
-  renderPreview($("chatTag"), parts);
+  renderPreview($("tagPreview"), true);
+  renderPreview($("chatTag"), false);
 
-  const code = buildCode(parts);
+  const code = buildCode();
   $("out").value = code;
   $("copy").disabled = !code;
 
   const hint = $("outHint");
-  hint.classList.toggle("over", vis > LIMIT);
+  hint.classList.toggle("over", n > LIMIT);
   if (!code) hint.textContent = "Type your tag above to get your code.";
-  else if (vis > LIMIT) hint.textContent = `Too long by ${vis - LIMIT}. Shorten it to ${LIMIT} characters.`;
+  else if (n > LIMIT) hint.textContent = `Too long by ${n - LIMIT}. Shorten it to ${LIMIT} characters.`;
   else hint.textContent = "Ready. Copy it and send it with /teamtag in game.";
+
+  updateStyleButtons();
 }
 
-// ---------- caret and sprite insertion ----------
-
-let caret = null;
-
-function saveCaret() {
-  const el = $("text");
-  caret = [el.selectionStart, el.selectionEnd];
-}
-
-function insertAtCaret(snippet) {
-  const el = $("text");
-  const [s, e] = caret || [el.value.length, el.value.length];
-  el.value = el.value.slice(0, s) + snippet + el.value.slice(e);
-  const pos = s + snippet.length;
-  el.focus();
-  el.setSelectionRange(pos, pos);
-  saveCaret();
-  renderAll();
-}
+// ---------- setup ----------
 
 function renderGrid() {
   const grid = $("grid");
@@ -473,102 +806,100 @@ function renderGrid() {
     img.className = "spr big";
     img.style.backgroundImage = `url(${s.d})`;
     b.appendChild(img);
-    b.addEventListener("click", () => insertAtCaret(`{${s.k}}`));
+    b.addEventListener("click", () => insertSprite(s.k));
     frag.appendChild(b);
   }
   grid.appendChild(frag);
 }
 
-// ---------- colors ----------
-
-function setColor(key, hex) {
-  state.colors[key] = hex;
-  const [pickId, hexId] = IDS[key];
-  $(pickId).value = hex;
-  $(hexId).value = hex;
-  $(hexId).classList.remove("bad");
-  renderAll();
+function addWarn(msg) {
+  const li = document.createElement("li");
+  li.textContent = msg;
+  $("importWarn").appendChild(li);
 }
 
-function bindPair(key) {
-  const [pickId, hexId] = IDS[key];
-  const pick = $(pickId), hex = $(hexId);
-  const focus = () => { state.target = key; };
-  pick.addEventListener("focus", focus);
-  hex.addEventListener("focus", focus);
-  pick.addEventListener("input", () => setColor(key, pick.value));
-  hex.addEventListener("input", () => {
-    let v = hex.value.trim();
-    if (v && !v.startsWith("#")) v = "#" + v;
-    if (HEX.test(v)) setColor(key, v.toLowerCase());
-    else hex.classList.add("bad");
-  });
-}
-
-function applySwatch(hex) {
-  if (state.mode === "none") return;
-  let key = "color";
-  if (state.mode === "gradient") key = state.target === "to" ? "to" : "from";
-  setColor(key, hex);
-}
-
-function setMode(mode) {
-  state.mode = mode;
-  document.querySelectorAll("#modes button").forEach(b => {
-    b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
-  });
-  $("solidRow").hidden = mode !== "color";
-  $("gradRow").hidden = mode !== "gradient";
-  $("swatchWrap").hidden = mode === "none";
-  state.target = mode === "gradient" ? "from" : "color";
-  renderAll();
-}
-
-// ---------- setup ----------
-
-// Style toggles
-for (const [key, label, note] of STYLES) {
+// Style buttons
+ORDER.forEach(key => {
+  const [name, note] = STYLE_NAMES[key];
   const b = document.createElement("button");
   b.type = "button";
   b.className = "btn tile";
+  b.dataset.key = key;
   b.setAttribute("aria-pressed", "false");
-  b.innerHTML = `<span class="ex ${key}">Aa</span><span class="cap">${label}</span><span class="note">${note}</span>`;
-  b.addEventListener("click", () => {
-    state.styles[key] = !state.styles[key];
-    b.setAttribute("aria-pressed", String(state.styles[key]));
-    renderAll();
-  });
-  $("styles").appendChild(b);
-}
-
-// Color mode buttons
-document.querySelectorAll("#modes button").forEach(b => {
-  b.addEventListener("click", () => setMode(b.dataset.mode));
+  b.innerHTML = `<span class="ex ${key}">Aa</span><span class="cap">${name}</span><span class="note">${note}</span>`;
+  b.addEventListener("click", () => toggleStyle(key));
+  $("styleBtns").appendChild(b);
 });
 
-// Color pickers
-bindPair("color");
-bindPair("from");
-bindPair("to");
+$("clearFmt").addEventListener("click", () => {
+  targetUnits().forEach(u => { u.s = blankStyle(); u.c = null; u.g = null; });
+  refresh();
+});
 
-// Minecraft swatches
-for (const [name, hex] of MC_COLORS) {
+// Color controls
+const colorPick = $("colorPick"), colorHex = $("colorHex");
+colorPick.addEventListener("input", () => { colorHex.value = colorPick.value; });
+colorHex.addEventListener("input", () => {
+  let v = colorHex.value.trim();
+  if (v && !v.startsWith("#")) v = "#" + v;
+  if (HEX.test(v)) { colorPick.value = v.toLowerCase(); colorHex.classList.remove("bad"); }
+  else colorHex.classList.add("bad");
+});
+$("applyColor").addEventListener("click", () => {
+  if (HEX.test(colorPick.value)) applyColor(colorPick.value);
+});
+$("clearColor").addEventListener("click", () => {
+  targetUnits().forEach(u => { u.c = null; });
+  refresh();
+});
+MC_COLORS.forEach(([name, hex]) => {
   const b = document.createElement("button");
   b.type = "button";
   b.className = "sw";
   b.style.background = hex;
   b.title = name;
-  b.addEventListener("click", () => applySwatch(hex));
+  b.addEventListener("click", () => applyColor(hex));
   $("swatches").appendChild(b);
-}
+});
 
-// Text input and caret tracking
+// Gradient controls
+$("addStop").addEventListener("click", () => {
+  state.stops.push("#ffffff");
+  renderStops();
+});
+$("applyGrad").addEventListener("click", applyGradient);
+$("removeGrad").addEventListener("click", () => {
+  targetUnits().forEach(u => { u.g = null; });
+  refresh();
+});
+
+// Text box
 const textEl = $("text");
-textEl.addEventListener("input", () => { saveCaret(); renderAll(); });
-["keyup", "click", "select", "blur"].forEach(ev => textEl.addEventListener(ev, saveCaret));
+textEl.addEventListener("input", () => {
+  syncFromText(textEl.value);
+  refresh();
+  onSelect();
+});
+["keyup", "mouseup", "select", "click"].forEach(ev => textEl.addEventListener(ev, onSelect));
 
-// Sprite search
+// Picture search
 $("search").addEventListener("input", renderGrid);
+
+// Paste and import
+$("importBtn").addEventListener("click", () => {
+  const src = $("pasteIn").value.trim();
+  $("importWarn").textContent = "";
+  if (!src) { addWarn("Paste some MiniMessage first."); return; }
+  const r = parseMini(src);
+  state.units = r.units;
+  state.gradients = r.gradients;
+  state.nextGradId = r.nextId;
+  textEl.value = displayOf(state.units);
+  r.warnings.forEach(addWarn);
+  if (!r.units.length) addWarn("Nothing was loaded. Check the code and try again.");
+  refresh();
+  onSelect();
+});
 
 // Copy and reset
 $("copy").addEventListener("click", async () => {
@@ -585,17 +916,20 @@ $("copy").addEventListener("click", async () => {
 });
 
 $("reset").addEventListener("click", () => {
+  state.units = [];
+  state.gradients = {};
+  state.nextGradId = 1;
   textEl.value = "";
-  for (const k of Object.keys(state.styles)) state.styles[k] = false;
-  document.querySelectorAll("#styles .btn").forEach(b => b.setAttribute("aria-pressed", "false"));
-  setMode("none");
-  caret = null;
-  renderAll();
+  $("pasteIn").value = "";
+  $("importWarn").textContent = "";
+  refresh();
+  onSelect();
 });
 
 renderGrid();
-setMode("none");
-renderAll();
+renderStops();
+onSelect();
+refresh();
 </script>
 </body>
 </html>
